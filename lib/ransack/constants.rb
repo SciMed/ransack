@@ -88,7 +88,7 @@ module Ransack
     # replace % \ to \% \\
     def escape_wildcards(unescaped)
       case ActiveRecord::Base.connection.adapter_name
-      when "SQLite"
+      when "SQLite", "OracleEnhanced"
         unescaped
       else
         # Necessary for PostgreSQL and MySQL
